@@ -4,19 +4,19 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Display extends Container {
 
     private JTextField t1;
-    private Rechner rechner;
 
-    public Display(Rechner rechner) {
-        setLayout(new FlowLayout());
+    public Display() {
+        setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        this.rechner = rechner;
 
         t1 = new JTextField("0", 15);
+        t1.setHorizontalAlignment(JTextField.CENTER);
         t1.setFont(new Font("Calibri", Font.BOLD, 20));
         add(t1);
 
@@ -29,11 +29,13 @@ public class Display extends Container {
     public int getNumber() {
 
         try{
+            System.out.println(Integer.parseInt(t1.getText()));
             return Integer.parseInt(t1.getText());
         } catch (Exception e) {
             System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Keine Buchstaben erlaubt", "Buchstaben error", JOptionPane.ERROR_MESSAGE);
             clearDisplay();
-            rechner.setMessage("Buchstaben sind nicht erlaubt");
+            
         }
 
         return 0;

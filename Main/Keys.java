@@ -4,16 +4,19 @@ import java.awt.Container;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 
 public class Keys  extends Container {
 
     Rechner rechner;
+    Display display;
 
     public Keys(Rechner rechner, Display display) {
         super();
 
         this.rechner = rechner;
+        this.display = display;
 
         setLayout(new GridLayout(5,4));
 
@@ -47,6 +50,7 @@ public class Keys  extends Container {
         bClear.addActionListener(e -> {
             display.setZero();
             System.out.println(e.getActionCommand());
+            JOptionPane.showMessageDialog(null, "Clear ", "Error", JOptionPane.ERROR_MESSAGE);
         });
 
 
@@ -102,16 +106,16 @@ public class Keys  extends Container {
             case "sum":
                 erg = sum(rechner.getCurrentNumber(), display.getNumber());
                 break;
-            case "null":
-                rechner.setMessage("Es wurde keine Rechenoperation ausgewählt!");
+            case "none":
+                JOptionPane.showMessageDialog(null, "Es wurde keie Rechenoperation ausgewählt", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
             default:
-                rechner.setMessage("Ein Fehler ist aufgetreten");
+                JOptionPane.showMessageDialog(null, "Ein Fehler mit den Rechenopeartionen ist aufgetreten", "Error", JOptionPane.ERROR_MESSAGE);
                 break;
         }
 
         
-        rechner.setCurrentOpeatio("null");
+        rechner.setCurrentOpeation("none");
         rechner.setLastErg(erg);
         display.setDisplay(erg);
         return erg;
@@ -133,7 +137,7 @@ public class Keys  extends Container {
         int erg = 0;
 
         if(y==0) {
-            rechner.setMessage("Durch 0 teilen ist unmöglich");
+            JOptionPane.showMessageDialog(null, "Es kann nicht durch 0 geteilt werden", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             erg = x/y;
         }

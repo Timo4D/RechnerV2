@@ -20,7 +20,7 @@ public class MathButton extends JButton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String action = e.getActionCommand();
-        rechner.setCurrentOpeatio(action);
+        rechner.setCurrentOpeation(action);
         System.out.println(action);
         rechner.setCurrentNumber(display.getNumber());
         display.setZero();

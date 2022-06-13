@@ -1,32 +1,31 @@
 package Main;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
-import java.awt.GridLayout;
 
 public class Rechner extends JFrame {
 
     private int lastErg;
     private int currentNumber;
-    private String currentOpeation = null;
-    private JLabel label = new JLabel("Statusmeldungen");
+    private String currentOpeation = "none";
 
     public Rechner() {
         super("Taschenrechner");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new GridLayout(3,1));
+        setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
 
 
-        Display display = new Display(this);
+        Display display = new Display();
 
+        
+        
         add(display);
         add(new Keys(this, display));
-        add(label);
 
         setSize(400,700);
         setVisible(true);
-        pack();
+        
     }
 
     public void setLastErg(int erg) {
@@ -45,7 +44,7 @@ public class Rechner extends JFrame {
         return currentNumber;
     }
 
-    public void setCurrentOpeatio(String currentOpeation) {
+    public void setCurrentOpeation(String currentOpeation) {
         this.currentOpeation = currentOpeation;
     }
 
@@ -53,13 +52,6 @@ public class Rechner extends JFrame {
         return currentOpeation;
     }
 
-    public String getMessage() {
-        return label.getText();
-    }
-
-    public void setMessage(String message) {
-        label.setText(message);
-    } 
 
 }
 

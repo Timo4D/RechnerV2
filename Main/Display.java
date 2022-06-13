@@ -15,9 +15,11 @@ public class Display extends Container {
         setLayout(new FlowLayout(FlowLayout.CENTER));
 
 
-        t1 = new JTextField("0", 15);
+        t1 = new JTextField("0",25);
         t1.setHorizontalAlignment(JTextField.CENTER);
         t1.setFont(new Font("Calibri", Font.BOLD, 20));
+
+        
         add(t1);
 
     }

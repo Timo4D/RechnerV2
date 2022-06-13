@@ -25,6 +25,7 @@ public class Rechner extends JFrame {
 
         setSize(400,700);
         setVisible(true);
+
         
     }
 

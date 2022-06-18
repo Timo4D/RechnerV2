@@ -21,6 +21,8 @@ public class Rechner extends JFrame {
         add(display, BorderLayout.NORTH);
         add(new Keys(this, display));
 
+        addComponentListener(new ComponentEvent(display));
+
         setVisible(true);
 
     }

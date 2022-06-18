@@ -71,4 +71,8 @@ public class Display extends Container {
         t1.setText(t1.getText() + text);
     }
 
+    public void setWidth(int width) {
+        t1.setPreferredSize(new Dimension(width, 50));
+    }
+
 }

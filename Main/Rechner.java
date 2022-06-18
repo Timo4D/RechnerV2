@@ -1,8 +1,8 @@
 package Main;
 
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
+import java.awt.BorderLayout;
 
+import javax.swing.JFrame;
 
 public class Rechner extends JFrame {
 
@@ -13,20 +13,16 @@ public class Rechner extends JFrame {
     public Rechner() {
         super("Taschenrechner");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
+        // setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
+        setLayout(new BorderLayout());
+        setSize(400, 450);
+        Display display = new Display(this);
 
-
-        Display display = new Display();
-
-        
-        
-        add(display);
+        add(display, BorderLayout.NORTH);
         add(new Keys(this, display));
 
-        setSize(400,700);
         setVisible(true);
 
-        
     }
 
     public void setLastErg(int erg) {
@@ -53,7 +49,4 @@ public class Rechner extends JFrame {
         return currentOpeation;
     }
 
-
 }
-
-

@@ -149,7 +149,7 @@ public class Keys extends JPanel {
 
         int erg = 0;
 
-        for (int i = start; i < end; i++) {
+        for (int i = start; i < end+1; i++) {
             erg += i;
         }
 

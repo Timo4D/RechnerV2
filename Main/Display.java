@@ -8,6 +8,8 @@ import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+//Im Display befindet sich ein JTextField dass aus aus und eingabe dient
+
 public class Display extends Container {
 
     private JTextField t1;
@@ -34,6 +36,9 @@ public class Display extends Container {
     public String getText() {
         return t1.getText();
     }
+
+
+    //Gibt nur nummern zurück und gibt einen fehler aus wenn auch Buchstaben oder andere sonderzeichen im textfeld sind
 
     public int getNumber() {
 

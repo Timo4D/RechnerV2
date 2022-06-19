@@ -1,15 +1,19 @@
 package Main;
 
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+//Erstellt die Tastatur und beinhaltet die Rechenmethoden
+
 public class Keys extends JPanel {
 
     private Rechner rechner;
     private Display display;
+    private Font font = new Font("Aharoni", Font.BOLD, 15);
 
     public Keys(Rechner rechner, Display display) {
         super();
@@ -19,22 +23,22 @@ public class Keys extends JPanel {
 
         setLayout(new GridLayout(5, 4));
 
-        NumButton b0 = new NumButton(0, display);
-        NumButton b1 = new NumButton(1, display);
-        NumButton b2 = new NumButton(2, display);
-        NumButton b3 = new NumButton(3, display);
-        NumButton b4 = new NumButton(4, display);
-        NumButton b5 = new NumButton(5, display);
-        NumButton b6 = new NumButton(6, display);
-        NumButton b7 = new NumButton(7, display);
-        NumButton b8 = new NumButton(8, display);
-        NumButton b9 = new NumButton(9, display);
-        MathButton bPlus = new MathButton("+", rechner, display);
-        MathButton bMinus = new MathButton("-", rechner, display);
-        MathButton bMal = new MathButton("*", rechner, display);
-        MathButton bDurch = new MathButton("/", rechner, display);
-        MathButton bMod = new MathButton("mod", rechner, display);
-        MathButton bSum = new MathButton("sum", rechner, display);
+        NumButton b0 = new NumButton(0, display, font);
+        NumButton b1 = new NumButton(1, display, font);
+        NumButton b2 = new NumButton(2, display, font);
+        NumButton b3 = new NumButton(3, display, font);
+        NumButton b4 = new NumButton(4, display, font);
+        NumButton b5 = new NumButton(5, display, font);
+        NumButton b6 = new NumButton(6, display, font);
+        NumButton b7 = new NumButton(7, display, font);
+        NumButton b8 = new NumButton(8, display, font);
+        NumButton b9 = new NumButton(9, display, font);
+        MathButton bPlus = new MathButton("+", rechner, display, font);
+        MathButton bMinus = new MathButton("-", rechner, display, font);
+        MathButton bMal = new MathButton("*", rechner, display, font);
+        MathButton bDurch = new MathButton("/", rechner, display, font);
+        MathButton bMod = new MathButton("mod", rechner, display, font);
+        MathButton bSum = new MathButton("sum", rechner, display, font);
         JButton bErg = new JButton("erg");
         JButton bGleich = new JButton("=");
         JButton bQuer = new JButton("quer");
@@ -45,11 +49,14 @@ public class Keys extends JPanel {
             display.setDisplay(rechner.getLastErg());
         });
 
+        bErg.setFont(font);
+
         bClear.addActionListener(e -> {
             display.setZero();
             System.out.println(e.getActionCommand());
-            JOptionPane.showMessageDialog(null, "Clear ", "Error", JOptionPane.ERROR_MESSAGE);
         });
+
+        bClear.setFont(font);
 
         bQuer.addActionListener(e -> {
             System.out.println("quer");
@@ -70,7 +77,11 @@ public class Keys extends JPanel {
 
         });
 
+        bQuer.setFont(font);
+
         bGleich.addActionListener(e -> rechnen(rechner, display));
+
+        bGleich.setFont(font);
 
         add(bErg);
         add(bQuer);

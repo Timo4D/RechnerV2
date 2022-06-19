@@ -6,9 +6,10 @@ import javax.swing.JFrame;
 
 public class Rechner extends JFrame {
 
-    private int lastErg;
-    private int currentNumber;
-    private String currentOpeation = "none";
+    private int lastErg; // Speichert das letzte ergebniss für die erg taste
+    private int currentNumber; // Bei Opearationen mit 2 Nummern ist das die erste nummer, die zweite wird
+                               // direkt aus dem Display gelesen
+    private String currentOpeation = "none"; // Speichert die ausgewählte Rechenoperation
 
     public Rechner() {
         super("Taschenrechner");
